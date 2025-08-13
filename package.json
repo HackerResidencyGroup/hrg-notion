@@ -1,0 +1,57 @@
+{
+  "name": "hrg-notion",
+  "private": true,
+  "author": "Travis Fischer <travis@transitivebullsh.it>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackerResidencyGroup/hrg-notion.git"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "run-s test:*",
+    "test:lint": "eslint --cache .",
+    "test:format": "prettier --check \"**/*.{js,ts,tsx}\"",
+    "test:unit": "vitest run",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@fisch0920/config": "^1.1.4",
+    "@types/node": "^24.0.13",
+    "dotenv": "^17.2.1",
+    "eslint": "^9.30.1",
+    "lint-staged": "^16.1.2",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.6.2",
+    "simple-git-hooks": "^2.13.0",
+    "tsx": "^4.20.4",
+    "type-fest": "^4.41.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "prettier": "@fisch0920/config/prettier",
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --ignore-unknown --write",
+      "eslint --cache --fix"
+    ]
+  },
+  "dependencies": {
+    "@agentic/social-data": "^7.6.9",
+    "@notionhq/client": "^4.0.1",
+    "hash-object": "^5.0.1",
+    "is-relative-url": "^4.0.0",
+    "normalize-url": "^8.0.2",
+    "octokit": "^5.0.3",
+    "p-map": "^7.0.3",
+    "quick-lru": "^7.0.1",
+    "zod": "^4.0.17"
+  }
+}
